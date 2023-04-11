@@ -6066,7 +6066,7 @@ static int smbchg_battery_get_property(struct power_supply *psy,
 		break;
 	case POWER_SUPPLY_PROP_SYSTEM_TEMP_LEVEL:
 		val->intval = chip->therm_lvl_sel;
-		pr_err("[SMBCHG]therm_lvl_sel=%d\n", chip->therm_lvl_sel);
+		/*pr_err("[SMBCHG]therm_lvl_sel=%d\n", chip->therm_lvl_sel);*/
 		break;
 	case POWER_SUPPLY_PROP_INPUT_CURRENT_MAX:
 		val->intval = smbchg_get_aicl_level_ma(chip) * 1000;
