@@ -1915,8 +1915,7 @@ int tas2557_set_calibration (struct tas2557_priv *pTAS2557, int nCalibration)
 		if (nResult < 0) {
 			dev_info (pTAS2557->dev, "load new calibration file %s fail %d\n",
 				TAS2557_CAL_NAME, nResult);
-			//Test, skip it now
-			//goto end;
+			goto end;
 		}
 		nCalibration = 0;
 	}
