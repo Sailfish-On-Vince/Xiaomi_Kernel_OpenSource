@@ -414,6 +414,12 @@
 #define __NR_memfd_create		(__NR_SYSCALL_BASE+385)
 #define __NR_bpf			(__NR_SYSCALL_BASE+386)
 
+#define __NR_clock_gettime64		(__NR_SYSCALL_BASE+403)
+#define __NR_clock_settime64		(__NR_SYSCALL_BASE+404)
+#define __NR_clock_adjtime64		(__NR_SYSCALL_BASE+405)
+#define __NR_clock_getres_time64	(__NR_SYSCALL_BASE+406)
+#define __NR_clock_nanosleep_time64	(__NR_SYSCALL_BASE+407)
+
 /*
  * The following SWIs are ARM private.
  */
