@@ -331,8 +331,7 @@
 			"AMIC2", "MIC BIAS Internal2",
 			"AMIC3", "MIC BIAS External";
 
-		qcom,hdmi-dba-codec-rx;
-
+		/* quin MI2S is used by the tas2557 smart amp, not HDMI */
 		qcom,msm-gpios =
 			"pri_i2s",
 			"us_eu_gpio",
