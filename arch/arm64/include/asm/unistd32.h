@@ -795,3 +795,30 @@ __SYSCALL(__NR_getrandom, sys_getrandom)
 __SYSCALL(__NR_memfd_create, sys_memfd_create)
 #define __NR_bpf 386
 __SYSCALL(__NR_bpf, sys_bpf)
+/* 387 - 402: reserved */
+__SYSCALL(387, sys_ni_syscall)
+__SYSCALL(388, sys_ni_syscall)
+__SYSCALL(389, sys_ni_syscall)
+__SYSCALL(390, sys_ni_syscall)
+__SYSCALL(391, sys_ni_syscall)
+__SYSCALL(392, sys_ni_syscall)
+__SYSCALL(393, sys_ni_syscall)
+__SYSCALL(394, sys_ni_syscall)
+__SYSCALL(395, sys_ni_syscall)
+__SYSCALL(396, sys_ni_syscall)
+__SYSCALL(397, sys_ni_syscall)
+__SYSCALL(398, sys_ni_syscall)
+__SYSCALL(399, sys_ni_syscall)
+__SYSCALL(400, sys_ni_syscall)
+__SYSCALL(401, sys_ni_syscall)
+__SYSCALL(402, sys_ni_syscall)
+#define __NR_clock_gettime64 403
+__SYSCALL(__NR_clock_gettime64, sys_clock_gettime64)
+#define __NR_clock_settime64 404
+__SYSCALL(__NR_clock_settime64, sys_clock_settime64)
+#define __NR_clock_adjtime64 405
+__SYSCALL(__NR_clock_adjtime64, compat_sys_clock_adjtime64)
+#define __NR_clock_getres_time64 406
+__SYSCALL(__NR_clock_getres_time64, sys_clock_getres_time64)
+#define __NR_clock_nanosleep_time64 407
+__SYSCALL(__NR_clock_nanosleep_time64, sys_clock_nanosleep_time64)
