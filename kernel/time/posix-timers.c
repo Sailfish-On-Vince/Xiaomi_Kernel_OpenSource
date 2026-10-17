@@ -48,6 +48,7 @@
 #include <linux/workqueue.h>
 #include <linux/export.h>
 #include <linux/hashtable.h>
+#include <linux/compat.h>
 
 #include "timekeeping.h"
 
@@ -1170,6 +1171,10 @@ SYSCALL_DEFINE2(clock_settime64, const clockid_t, which_clock,
 	if (copy_from_user(&ts64, tp, sizeof(ts64)))
 		return -EFAULT;
 
+	/* ARM32 time64 ABI leaves the upper half of tv_nsec as padding. */
+	if (is_compat_task())
+		ts64.tv_nsec = (u32)ts64.tv_nsec;
+
 	kernel_tp = timespec64_to_timespec(ts64);
 
 	return kc->clock_set(which_clock, &kernel_tp);
@@ -1235,6 +1240,10 @@ SYSCALL_DEFINE4(clock_nanosleep_time64, const clockid_t, which_clock, int, flags
 
 	if (copy_from_user(&t64, rqtp, sizeof(t64)))
 		return -EFAULT;
+
+	/* Match clock_settime64's handling of ARM32 time64 padding. */
+	if (is_compat_task())
+		t64.tv_nsec = (u32)t64.tv_nsec;
 
 	if (!timespec64_valid(&t64))
 		return -EINVAL;
