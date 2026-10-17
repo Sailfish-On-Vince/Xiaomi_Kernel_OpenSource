@@ -1241,10 +1241,6 @@ SYSCALL_DEFINE4(clock_nanosleep_time64, const clockid_t, which_clock, int, flags
 	if (copy_from_user(&t64, rqtp, sizeof(t64)))
 		return -EFAULT;
 
-	/* Match clock_settime64's handling of ARM32 time64 padding. */
-	if (is_compat_task())
-		t64.tv_nsec = (u32)t64.tv_nsec;
-
 	if (!timespec64_valid(&t64))
 		return -EINVAL;
 

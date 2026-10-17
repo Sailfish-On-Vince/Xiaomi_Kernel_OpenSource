@@ -24,8 +24,3 @@
 	qcom,board-id= <0x0b 0x08>;
 };
 
-/* Sailfish stores wall-clock time in the PMIC RTC across power cycles. */
-&pm8953_rtc {
-	qcom,qpnp-rtc-write = <1>;
-};
-
